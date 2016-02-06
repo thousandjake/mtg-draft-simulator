@@ -1,0 +1,17 @@
+{
+  "name": "mtg-draft",
+  "version": "1.0.0",
+  "description": "a draft similuator for magic the gathering",
+  "main": "src/web.js",
+  "scripts": {
+    "test": "node src/web.js"
+  },
+  "author": "jake thousand",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7"
+  }
+}

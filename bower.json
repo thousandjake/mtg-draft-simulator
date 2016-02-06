@@ -1,0 +1,21 @@
+{
+  "name": "mtg-draft",
+  "description": "a draft similuator for magic the gathering",
+  "main": "src/web.js",
+  "authors": [
+    "jake thousand"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mustache.js": "mustache#~2.2.1"
+  }
+}
