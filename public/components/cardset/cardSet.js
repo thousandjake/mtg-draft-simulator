@@ -1,7 +1,7 @@
 var CardSet = {
   setCache : {},
   getSet : function (args) {
-    var dataReady = new Promise( function (resolve, reject) {
+    return new Promise( function (resolve, reject) {
       if(CardSet.setCache.hasOwnProperty(args.setName)) {
         resolve(CardSet.setCache[args.setName]);
       } else {
@@ -18,9 +18,7 @@ var CardSet = {
       }
     }).catch(function () {
         console.error('failed to get cardset from server');
-    }).then(function (xhrResponse) {
-        CardSet.sortSet(xhrResponse);
-    });
+      });
   },
   sortSet : function (allCards) {
     var rares = [], commons = [], lands = [], tokens = [];
@@ -47,8 +45,6 @@ var CardSet = {
       'lands': lands,
       'tokens': tokens
     };
-    AppDispatcher.dispatch('get-packs', {'sortedCards': sortedCards});
+    return sortedCards;
   }
 };
-
-AppDispatcher.register('get-set', CardSet.getSet.bind(CardSet));

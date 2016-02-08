@@ -5,34 +5,14 @@
   <body>
     <h1>MTG Draft Simulator</h1>
     <h3>OGW Pack+OGW Pack+BFZ Pack</h3>
-    <Menu>
-      <h3>Please choose 3 pack types for draft!</h3>
-    </Menu>
     <Pack>
       <h3>Current Pack</h3>
     </Pack>
+    <Pool></Pool>
+    <Lands></Lands>
+    <Deck></Deck>
     <script src="/mustache.js/mustache.js"></script>
-    <script src="/components/app-dispatcher.js"></script>
-    <script src="/components/menu/menu.js"></script>
     <script src="/components/cardset/cardSet.js"></script>
-    <script src="/components/pack/pack.js"></script>
-    <script src="/components/pack/packView.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded',function () {
-        //dispatch the menu-load event
-        AppDispatcher.dispatch('menu-load', {});
-      });
-    </script>
+    <script src="/components/draft/draft.js"></script>
   </body>
 </html>
-
-start app
-  - dispatch menu-load, no args = Menu.render();
-  - every time a button is clicked (when count is less than 3) the set chosen is pulled from server (or from cache) and sorted and 6 packs are generated
-    -dispatch get-set, args= {setName: 'setName'} = CardSet.getSet()
-    -getSet() will call CardSet.sort(currentSet)
-    -sort() will dispatch get-packs, args={sortedCards : 'sortedCards'} = Pack.generatePacks()
-    -these packs will be pushed into Pack.packsArray
-  - Once 3 pack types are selected the draft will begin, the first pack given to the player will render in the app
-    - step
-  - Once a card is chosen, a card is removed from the first pack grouping and the next pack is rendered in the app for the user to choose
