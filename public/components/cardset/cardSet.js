@@ -21,17 +21,15 @@ var CardSet = {
       });
   },
   sortSet : function (allCards) {
-    var rares = [], commons = [], lands = [], tokens = [];
+    var mythics =[], rares = [], uncommons = [], commons = [], lands = [], tokens = [];
     allCards.forEach(function (currentValue, index) {
-      if(
-        currentValue.rarity === 'Uncommon' ||
-        currentValue.rarity === 'Rare' ||
-        currentValue.rarity === 'Mythic Rare'
-      ) {
+      if(currentValue.rarity === 'Mythic Rare') {
+        mythics.push(currentValue);
+      } else if(currentValue.rarity === 'Rare') {
         rares.push(currentValue);
-      } else if(
-        currentValue.rarity === 'Common'
-      ) {
+      } else if(currentValue.rarity === 'Uncommon') {
+        uncommons.push(currentValue);
+      } else if(currentValue.rarity === 'Common') {
         commons.push(currentValue);
       } else if(currentValue.rarity === 'Basic Land') {
         lands.push(currentValue);
@@ -40,7 +38,9 @@ var CardSet = {
       };
     });
     var sortedCards = {
+      'mythics' : mythics,
       'rares' : rares,
+      'uncommons' : uncommons,
       'commons': commons,
       'lands': lands,
       'tokens': tokens

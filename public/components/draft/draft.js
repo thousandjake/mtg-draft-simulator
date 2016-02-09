@@ -44,14 +44,24 @@ var Draft = {
       });
   },
   generatePacks : function (sortedCards) {
+    var mythics = sortedCards.mythics;
     var rares = sortedCards.rares;
+    var uncommons = sortedCards.uncommons;
     var commons = sortedCards.commons;
     var pack = [];
     for(var x=0;x<6;x++) {
-      for(var y=0;y<3;y++) {
-        pack.push(rares[Math.floor(Math.random() * rares.length)]);
+      for(var y=0;y<1;y++) {
+        if(Math.ceil(Math.random()*8)<=7) {
+          pack.push(rares[Math.floor(Math.random() * rares.length)]);
+        } else {
+          pack.push(mythics[Math.floor(Math.random() * mythics.length)]);
+          console.log('MYTHIC RARE');
+        }
       };
-      for(var y=0;y<11;y++) {
+      for(var y=0;y<3;y++) {
+        pack.push(uncommons[Math.floor(Math.random() * uncommons.length)]);
+      };
+      for(var y=0;y<10;y++) {
         pack.push(commons[Math.floor(Math.random() * commons.length)]);
       };
       console.log(pack);
