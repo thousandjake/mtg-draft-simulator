@@ -23,7 +23,9 @@ var CardSet = {
   sortSet : function (allCards) {
     var mythics =[], rares = [], uncommons = [], commons = [], lands = [], tokens = [];
     allCards.forEach(function (currentValue, index) {
-      if(currentValue.rarity === 'Mythic Rare') {
+      if(currentValue.type === 'Land') {
+        lands.push(currentValue);
+      } else if(currentValue.rarity === 'Mythic Rare') {
         mythics.push(currentValue);
       } else if(currentValue.rarity === 'Rare') {
         rares.push(currentValue);
@@ -31,8 +33,6 @@ var CardSet = {
         uncommons.push(currentValue);
       } else if(currentValue.rarity === 'Common') {
         commons.push(currentValue);
-      } else if(currentValue.rarity === 'Basic Land') {
-        lands.push(currentValue);
       } else {
         tokens.push(currentValue);
       };
