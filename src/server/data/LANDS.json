@@ -1,0 +1,27 @@
+{"basicLands" : [
+    {
+    "name" : "Plains",
+    "multiverseid" : 405342
+    },
+    {
+    "name" : "Swamps",
+    "multiverseid" : 405402
+    },
+    {
+    "name" : "Mountains",
+    "multiverseid" : 405307
+    },
+    {
+    "name" : "Islands",
+    "multiverseid" : 405263
+    },
+    {
+    "name" : "Forests",
+    "multiverseid" : 405233
+    },
+    {
+    "name" : "Wastes",
+    "multiverseid" : 407693
+    }
+  ]
+}
